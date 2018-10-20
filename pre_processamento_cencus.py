@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Sep 28 11:16:58 2018
-
-@author: paulo
-"""
 import pandas as pd
 
 base = pd.read_csv('census.csv')

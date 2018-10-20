@@ -6,9 +6,10 @@ base.loc[base.age < 0, 'age'] = 40.92
 previsores = base.iloc[:, 1:4].values
 classe = base.iloc[:, 4].values
 
-from sklearn.preprocessing import Imputer
-imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
-imputer = imputer.fit(previsores[:, 1:4])
+import numpy as np
+from sklearn.impute import SimpleImputer
+simpleimputer = SimpleImputer(missing_values=np.nan,strategy='mean')
+imputer = simpleimputer.fit(previsores[:, 1:4])
 previsores[:, 1:4] = imputer.transform(previsores[:, 1:4])
 
 from sklearn.preprocessing import StandardScaler
@@ -21,6 +22,14 @@ previsores_treinamento,previsores_teste,classe_treinamento,classe_teste = train_
 from sklearn.svm import SVC
 classificador = SVC(kernel='rbf',random_state = 1,C = 2)
 classificador.fit(previsores_treinamento,classe_treinamento)
+
+# Salvar o CLassificador
+from sklearn.externals import joblib
+joblib.dump(classificador,'test.pk')
+
+# Carregando o Classificador
+test = joblib.load('test.pk')
+
 resultado = classificador.predict(previsores_teste)
 
 
