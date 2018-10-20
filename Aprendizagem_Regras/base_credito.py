@@ -1,6 +1,6 @@
 import Orange
 
-base = Orange.data.Table('risco-credito.csv')
+base = Orange.data.Table('Dados/risco-credito.csv')
 base.domain
 
 cn2_learner = Orange.classification.rules.CN2Learner()

@@ -1,6 +1,6 @@
 import Orange
 
-base = Orange.data.Table('census.csv')
+base = Orange.data.Table('Dados/census.csv')
 
 base_dividida = Orange.evaluation.testing.sample(base,n=0.15)
 base_treinamento = base_dividida[1]

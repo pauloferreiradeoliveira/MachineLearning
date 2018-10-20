@@ -1,6 +1,6 @@
 import pandas as pd
 
-base = pd.read_csv('census.csv')
+base = pd.read_csv('Dados/census.csv')
 #base.drop('capital-gain',1,inplace=True)
 #base.drop('capital-loos',1,inplace=True)
 

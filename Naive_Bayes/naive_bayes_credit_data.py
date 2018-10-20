@@ -7,9 +7,9 @@ Created on Thu Oct  4 14:34:23 2018
 
 import pandas as pd
 
-base = pd.read_csv('credit-data.csv')
+base = pd.read_csv('Dados/credit-data.csv')
 base.loc[base.age < 0, 'age'] = 40.92
-               
+
 previsores = base.iloc[:, 1:4].values
 classe = base.iloc[:, 4].values
 

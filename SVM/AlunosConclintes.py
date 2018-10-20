@@ -1,5 +1,5 @@
 import pandas as pd
-base = pd.read_excel('alunos.xlsx')
+base = pd.read_excel('Dados/alunos.xlsx')
 
 previsores = base.iloc[:, 2:9].values
 classe = base.iloc[:, 9].values

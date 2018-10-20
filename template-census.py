@@ -1,10 +1,10 @@
 import pandas as pd
 
-base = pd.read_csv('census.csv')
+base = pd.read_csv('Dados/census.csv')
 
 previsores = base.iloc[:, 0:14].values
 classe = base.iloc[:, 14].values
-                
+
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 labelencoder_previsores = LabelEncoder()
 previsores[:, 1] = labelencoder_previsores.fit_transform(previsores[:, 1])
@@ -28,4 +28,3 @@ previsores = scaler.fit_transform(previsores)
 
 from sklearn.model_selection import train_test_split
 previsores_treinamento,previsores_teste,classe_treinamento,classe_teste = train_test_split(previsores,classe,test_size=0.15,random_state=0)
-

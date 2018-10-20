@@ -2,10 +2,10 @@
 
 import pandas as pd
 
-base = pd.read_csv('credit-data.csv')
+base = pd.read_csv('Dados/credit-data.csv')
 base.describe()
 
-# -- Valores Inconsistentes -- 
+# -- Valores Inconsistentes --
 # Mostrando valores menor que 0
 base.loc[base['age'] < 0]
 
@@ -31,7 +31,7 @@ base.loc[pd.isnull(base['age'])]
 previsores = base.iloc[:, 1:4].values
 classe = base.iloc[:, 4].values
 
-# Deprecated 
+# Deprecated
 from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values='NaN',strategy='mean', axis= 0)
 imputer = imputer.fit(previsores[:, 0:3])
